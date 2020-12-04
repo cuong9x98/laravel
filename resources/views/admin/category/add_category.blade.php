@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title','Home')
+@section('title','Loại sản phẩm')
 @section('content')
 <!--main content start-->
 <!--main content start-->

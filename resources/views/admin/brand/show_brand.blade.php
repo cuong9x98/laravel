@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title','Loại sản phẩm')
+@section('title','Chi tiết sản phẩm')
 @section('content')
 <!--main content start-->
 <!--main content start-->
@@ -11,24 +11,16 @@
         <div class="row">
             <div class="col-lg-12">
                 <section class="panel">
-                    @if(session('msg'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('msg') }}
-                    </div>
-                    @endif
                     <header class="panel-heading">
-                        Sửa loại sản phẩm
+                        Chi tiết thương hiệu
                     </header>
                     <div class="panel-body">
                         <div class="position-center">
-                            <form action="{{route('category.update',['category'=>$category->id])}}" method="post" role="form">
-                                @csrf
-                                @method('put')
+                            <form role="form">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Tên loại</label>
-                                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="" value="{{$category->name}}">
+                                    <label for="exampleInputEmail1">Tên thương hiệu</label>
+                                    <input type="text" name="name" class="form-control" id="exampleInputEmail1"disabled placeholder="Enter email" value="{{$brand->name}}">
                                 </div>
-                                <button type="submit" class="btn btn-info">Sửa</button>
                             </form>
                         </div>
                     </div>

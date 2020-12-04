@@ -1,5 +1,5 @@
 @extends('admin.layout')
-@section('title','Loại sản phẩm')
+@section('title','Thương Hiệu')
 @section('content')
 <!--main content start-->
 <section id="main-content">
@@ -12,7 +12,7 @@
     </div>
     @endif
     <div class="panel-heading">
-      Danh sách loại sản phẩm
+      Danh sách thương hiệu
     </div>
     <div class="row w3-res-tb">
       <div class="col-sm-5 m-b-xs">
@@ -47,22 +47,22 @@
           </tr>
         </thead>
         <tbody>
-                @foreach($category as $category)
+                @foreach($brand as $brand)
                 <tr>
                     <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
-                    <td>{{$category->id}}</td>
-                    <td><span class="text-ellipsis">{{$category->name}}</span></td>
+                    <td>{{$brand->id}}</td>
+                    <td><span class="text-ellipsis">{{$brand->name}}</span></td>
                     <td>
-                        <a href="{{route('category.show',['category'=>$category->id])}}" class="active" ui-toggle-class="">
+                        <a href="{{route('brand.show',['brand'=>$brand->id])}}" class="active" ui-toggle-class="">
                             <i class="fa fa-eye text-dark text-active"></i>
                         </a>
                     </td>
                     <td width="10px">
-                        <a href="{{route('category.edit',['category'=>$category->id])}}">
+                        <a href="{{route('brand.edit',['brand'=>$brand->id])}}">
                             <i class="fa fa-wrench text-success text-active"></i>
                         </a>
                     </td>
-                    <form action="{{route('category.destroy',['category'=>$category->id])}}" width="10px" method="post">
+                    <form action="{{route('brand.destroy',['brand'=>$brand->id])}}" width="10px" method="post">
                         @csrf
                         @method('delete')
                         <td width="10px">

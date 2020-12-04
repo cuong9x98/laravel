@@ -21,12 +21,12 @@
                     </header>
                     <div class="panel-body">
                         <div class="position-center">
-                            <form action="{{route('category.update',['category'=>$category->id])}}" method="post" role="form">
+                            <form action="{{route('brand.update',['brand'=>$brand->id])}}" method="post" role="form">
                                 @csrf
                                 @method('put')
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Tên loại</label>
-                                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="" value="{{$category->name}}">
+                                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="" value="{{$brand->name}}">
                                 </div>
                                 <button type="submit" class="btn btn-info">Sửa</button>
                             </form>

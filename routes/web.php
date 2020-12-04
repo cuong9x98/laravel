@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin.user.login');
-});
+
 // Admin
 Route::group(['namespace'=>'admin','prefix'=>'admin'],function(){
 	// Home
@@ -30,6 +28,11 @@ Route::group(['namespace'=>'admin','prefix'=>'admin'],function(){
 	//Category
 	Route::group(['namespace'=>'category'],function(){
 		Route::resource('category', 'CategoryController');
+	});
+
+	//Brand
+	Route::group(['namespace'=>'brand'],function(){
+		Route::resource('brand', 'BrandController');
 	});
 
 });

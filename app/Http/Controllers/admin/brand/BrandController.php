@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\admin\category;
+namespace App\Http\Controllers\admin\brand;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\Category;
-
-class CategoryController extends Controller
+use App\Model\Brand;
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $category = Category::all();
-        return view('admin.category.list_category',['category'=>$category]);
+        $brand = Brand::all();
+        return view('admin.brand.list_brand',['brand'=>$brand]);
     }
 
     /**
@@ -26,7 +25,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.add_category');
+        return view('admin.brand.add_brand');
     }
 
     /**
@@ -37,10 +36,10 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = new Category();
-        $category->name = $request->name;
-        $category->save();
-        return redirect()->route('category.create')->with('msg','Thêm mới thành công.');
+        $brand = new Brand();
+        $brand->name = $request->name;
+        $brand->save();
+        return redirect()->route('brand.create')->with('msg','Thêm mới thành công.');
     }
 
     /**
@@ -51,8 +50,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $category = Category::find($id);
-        return view('admin.category.show_category',['category'=>$category]);
+        $brand = Brand::find($id);
+        return view('admin.brand.show_brand',['brand'=>$brand]);
     }
 
     /**
@@ -63,8 +62,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('admin.category.edit_category',['category'=>$category]);
+        $brand = Brand::find($id);
+        return view('admin.brand.edit_brand',['brand'=>$brand]);
     }
 
     /**
@@ -76,9 +75,9 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category =Category::find($id);
-        $category->name = $request->name;
-        $category->save();
+        $brand =Brand::find($id);
+        $brand->name = $request->name;
+        $brand->save();
         return back()->with('msg','Sửa thành công.');
     }
 
@@ -90,8 +89,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
+        $brand = Brand::find($id);
+        $brand->delete();
         return back()->with('msg','Xóa thành công.');
     }
 }
