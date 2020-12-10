@@ -21,7 +21,18 @@ class BrandSeeder extends Seeder
             [
                 'name'=>"Lenovo",
             ],
-        	
+            [
+                'name'=>"Apple",
+            ],
+        	[
+                'name'=>"MSI",
+            ],
+            [
+                'name'=>"Asus",
+            ],
+            [
+                'name'=>"Acer",
+            ],
         ];
         DB::table('brands')->insert($data);
     }

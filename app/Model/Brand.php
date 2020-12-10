@@ -11,4 +11,9 @@ class Brand extends Model
     protected $fillable = [
         'name'
     ];
+    
+    public function produclines()
+    {
+        return $this->hasMany(Productline::class,'brand_id','id');
+    }
 }

@@ -235,7 +235,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                 <img alt="" src="images/2.png">
-                <span class="username">John Doe</span>
+                <span class="username"></span>
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
@@ -286,11 +286,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-tasks"></i>
+                        <span>Dòng sản phẩm</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{route('productline.create')}}">Thêm dòng</a></li>
+                        <li><a href="{{route('productline.index')}}">Danh sách dòng</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks"></i>
                         <span>Sản phẩm</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{route('brand.create')}}">Thêm sản phẩm</a></li>
-                        <li><a href="{{route('brand.index')}}">Danh sách sản phẩm</a></li>
+                        <li><a href="{{route('product.create')}}">Thêm laptop</a></li>
+                        <li><a href="{{route('product.index')}}">Danh sách laptop</a></li>
+                        <li><a href="{{route('product.index')}}">Thêm linh kiện</a></li>
+                        <li><a href="{{route('product.index')}}">Danh linh kiện</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-tasks"></i>
+                        <span>Hóa đơn</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="{{route('product.create')}}">Hóa Đơn Nhập</a></li>
+                        <li><a href="{{route('product.index')}}">Hóa Đơn Bán</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -435,3 +457,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </body>
 </html>
 <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>

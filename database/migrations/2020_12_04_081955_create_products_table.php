@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->integer('quantity');
             $table->integer('promotion')->default(0);
-            $table->string('image_product');
+            $table->string('image');
             $table->string('cpu');
             $table->string('ram');
             $table->string('disk');
@@ -28,14 +28,12 @@ class CreateProductsTable extends Migration
             $table->string('screen');
             $table->string('resolution');
             $table->string('video');
-            $table->integer('like')->default(0);
-            $table->integer('rate')->default(0);
             $table->integer('view')->default(0);
             $table->integer('buy_count')->default(0);
             $table->integer('status')->default(0);
             $table->string('tags_id')->nullable();
-            $table->integer('category_id');
             $table->integer('brand_id');
+            $table->integer('productline_id');
             $table->timestamps();
         });
     }

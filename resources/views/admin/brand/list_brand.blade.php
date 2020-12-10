@@ -25,7 +25,7 @@
       </div>
       <div class="col-sm-3">
         <div class="input-group">
-          <input type="text" class="input-sm form-control" placeholder="Search">
+          <input type="text" id="myInput" class="input-sm form-control" placeholder="Search">
           <span class="input-group-btn">
             <button class="btn btn-sm btn-default" type="button">Tìm kiếm</button>
           </span>
@@ -46,7 +46,7 @@
             <th style="width:30px;"></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="myTable">
                 @foreach($brand as $brand)
                 <tr>
                     <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>

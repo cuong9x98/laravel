@@ -35,4 +35,24 @@ Route::group(['namespace'=>'admin','prefix'=>'admin'],function(){
 		Route::resource('brand', 'BrandController');
 	});
 
+	//Productline
+	Route::group(['namespace'=>'productline'],function(){
+		Route::resource('productline', 'ProductlineController');
+	});
+
+	//Product
+	
+	Route::group(['namespace'=>'product'],function(){
+		Route::resource('product', 'ProductController');
+		Route::post('product/select_productline','ProductController@selectProductline')->name('select_productline');
+	});
+});
+
+
+//Client
+Route::group(['namespace'=>'client'],function(){
+	Route::group(['namespace'=>'home'],function(){
+		Route::get('/','HomeController@index')->name('home.index');
+		Route::get('product/{id}','HomeController@show')->name('client.home.show');
+	});
 });
