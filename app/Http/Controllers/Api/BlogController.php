@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
-use App\Models\Blog;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Blog;
+use App\Http\Resources\BlogResource;
 
 class BlogController extends Controller
 {
@@ -12,8 +14,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $blog = Blog::all();
-        return view('blog.index', ['blog' => $blog]);
+        //
     }
 
     /**
@@ -21,7 +22,7 @@ class BlogController extends Controller
      */
     public function create()
     {
-        return view('blog.create');
+        
     }
 
     /**
@@ -29,13 +30,22 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $blog = Blog::create([
+            'title' => $request->title,
+            'descriptions' => $request->descriptions,
+            'status' => $request->status,
+        ]);
+        
+        return response()->json([
+            'message' => 'Success',
+            'data' => new BlogResource($blog)
+        ], 200);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Blog $blog)
+    public function show(string $id)
     {
         //
     }
@@ -43,7 +53,7 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit(string $id)
     {
         //
     }
@@ -51,7 +61,7 @@ class BlogController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -59,7 +69,7 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $blog)
+    public function destroy(string $id)
     {
         //
     }
